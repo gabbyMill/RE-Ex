@@ -1,0 +1,29 @@
+{
+  "name": "re-ex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabbyMill/RE-Ex.git"
+  },
+  "author": "gabby_mill <gabbymillatiner@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabbyMill/RE-Ex/issues"
+  },
+  "homepage": "https://github.com/gabbyMill/RE-Ex#readme"
+}
