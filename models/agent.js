@@ -1,13 +1,13 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const agentSchema = new mongoose.Schema({
   name: String,
-  City: String,
-  License: Number,
+  city: String,
+  license: Number,
   id: Number,
 });
 
-const Agent = mongoose.model("Person", agentSchema);
+const Agent = mongoose.model("Agent", agentSchema);
 
 // this has to be after Person for it to work
 agentSchema.set("toJSON", {
@@ -18,6 +18,4 @@ agentSchema.set("toJSON", {
   },
 });
 
-module.exports = {
-  Agent,
-};
+export default Agent;
