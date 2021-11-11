@@ -15,6 +15,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// Bonus, able to add new agent to DB
 router.post("/", async (req, res) => {
   const { name, city, license, id } = req.body;
   const agent = Agent({

@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms :body")
 );
-app.use("/postcsv", postcsv);
+app.use("/csv", postcsv);
 app.use("/cities", citiesRoute);
 app.use("/agents", mulAgents);
 app.use("/agent", agentRoute);
@@ -25,3 +25,4 @@ app.use("/agent", agentRoute);
 app.use(errorHandler);
 
 export default app;
+// 618d03b0bd5139dcf5482980

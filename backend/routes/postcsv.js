@@ -4,6 +4,8 @@ import Agent from "../../models/agent.js";
 import express from "express";
 const router = express.Router();
 
+// Just a route I made for development
+// Replaces insert-batch.js in example
 router.post("/", async (req, res, next) => {
   console.log("csv");
   try {
@@ -35,5 +37,11 @@ router.post("/", async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+});
+
+// Handy to see data in postman
+router.get("/", async (req, res) => {
+  const agents = await Agent.find({});
+  res.json(agents);
 });
 export default router;
