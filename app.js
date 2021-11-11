@@ -4,7 +4,9 @@ import cors from "cors";
 import morgan from "morgan";
 import citiesRoute from "./backend/routes/citiesRoute.js";
 import agentRoute from "./backend/routes/agentRoute.js";
-import batch from "./backend/batch-insert.js";
+import mulAgents from "./backend/routes/mulAgents.js";
+import postcsv from "./backend/routes/postcsv.js";
+import errorHandler from "./backend/middleware/errorHandler.js";
 
 const app = express();
 
@@ -15,12 +17,11 @@ app.use(express.json());
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms :body")
 );
-
+app.use("/postcsv", postcsv);
 app.use("/cities", citiesRoute);
+app.use("/agents", mulAgents);
 app.use("/agent", agentRoute);
-app.use("/csv", batch);
 
-// last
-// app.use(errorHandler)
+app.use(errorHandler);
 
 export default app;

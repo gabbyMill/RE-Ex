@@ -4,7 +4,7 @@ const agentSchema = new mongoose.Schema({
   name: String,
   city: String,
   license: Number,
-  id: Number,
+  // id: Number,
 });
 
 const Agent = mongoose.model("Agent", agentSchema);
