@@ -26,9 +26,4 @@ router.post("/", async (req, res) => {
   res.json(response);
 });
 
-router.get("/a", (req, res, next) => {
-  console.log(2);
-  console.log(req.query);
-  res.json("123");
-});
 export default router;

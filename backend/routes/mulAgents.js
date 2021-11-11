@@ -1,26 +1,19 @@
-import csv from "csvtojson";
-import path from "path";
 import Agent from "../../models/agent.js";
 import express from "express";
 const router = express.Router();
 
-router.get("/?key=value", (req, res, next) => {
+router.get("/", async (req, res, next) => {
+  console.log("in");
   try {
-    if (Object.values(req.query).length > 0) {
-      res.json(data);
-      // const j = JSON.stringify(req.query);
-      // return res.redirect(`/a?key=value`);
-      const q = Object.values(req.query)[0];
-      const agentArray = data.map(obj => {
-        if (obj["עיר מגורים"] === q) {
-          console.log(obj);
-          return obj["שם המתווך"];
-        }
-        res.json(agentArray);
-      });
-    } else {
+    if (!Object.values(req.query).length > 0) {
       throw { status: 500, message: "Wrong Route" };
     }
+    const q = Object.values(req.query)[0];
+    const agentList = await Agent.find({ city: q });
+    if (agentList.length < 1) {
+      throw { status: 404, message: "No such city in our database" };
+    }
+    res.json(agentList);
   } catch (err) {
     next(err);
   }
